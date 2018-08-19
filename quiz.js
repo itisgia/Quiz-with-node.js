@@ -1,14 +1,15 @@
 process.stdout.write('\n\nWelcome\n\n');
 var questions = [
-    "Type number 5",
-    "Type Wellington",
-    "What is 2 x 2 ?"
+    "What is capital of Korea",
+    "What is 10 x 5",
+    "What school do I go to in Wellington"
 ];
 var answers = [
-    "5",
-    "Wellington",
-    "4"
+    "Seoul",
+    "50",
+    "Yoobee"
 ];
+
 var usersAnswers = [];
 
 function askQuestions(i) {
@@ -18,6 +19,7 @@ function askQuestions(i) {
 process.stdin.on('data', function (answer) {
     // process.stdout.write(`${answer}`);
     // process.exit();
+    
     var questionNumber = usersAnswers.length;
     var inputAnswer = answer.toString().trim();
     if (inputAnswer == answers[questionNumber]) {
@@ -32,11 +34,12 @@ process.stdin.on('data', function (answer) {
         process.stdout.write(`\n\nWrong\n\n`);
         // process.exit();
     }
+    checkAnswer();
 
 });
 
-
 askQuestions(0);
+
 process.on('exit', function () {
     process.stdout.write(`\n\n Congrats, you have completed the quiz\n\n`)
 })
